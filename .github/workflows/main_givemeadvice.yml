@@ -22,13 +22,13 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
-      - name: Build with dotnet
+      - name: Build
         run: dotnet build --configuration Release
         
-      - name: Launch tests
+      - name: Test
         run: dotnet test --configuration Release
 
-      - name: dotnet publish
+      - name: Publich
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
