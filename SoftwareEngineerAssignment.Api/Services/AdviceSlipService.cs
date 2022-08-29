@@ -7,15 +7,18 @@ namespace SoftwareEngineerAssignment.Api.Services;
 
 public class AdviceSlipService : IAdviceSlipService
 {
+    private readonly ILogger<AdviceSlipService> _logger;
     private readonly HttpClient _httpClient;
 
-    public AdviceSlipService(HttpClient httpClient)
+    public AdviceSlipService(ILogger<AdviceSlipService> logger, HttpClient httpClient)
     {
+        _logger = logger;
         _httpClient = httpClient;
     }
 
     public async Task<GiveMeAdviceResponse> GetAdviceSlip(GiveMeAdviceRequest request)
     {
+        _logger.LogInformation("Not-cached advice-slip service called on topic {topic}", request.Topic);
         var response = await _httpClient.GetAsync(RouteConstants.AdviceSlipServiceSearchUrl + request.Topic);
 
         if (!response.IsSuccessStatusCode)
