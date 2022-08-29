@@ -2,7 +2,7 @@
 using System.Text.Json;
 using SoftwareEngineerAssignment.Api.Models.AdviceSlip;
 
-namespace SoftwareEngineerAssignment.Tests.Services;
+namespace SoftwareEngineerAssignment.Tests.Unit.Services;
 
 /// <summary>
 /// Mocked message handler for testing purposes. Used to mock the HttpClient.

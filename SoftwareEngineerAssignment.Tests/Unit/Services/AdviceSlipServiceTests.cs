@@ -1,9 +1,11 @@
 ﻿using System.Net;
+using Microsoft.Extensions.Logging;
+using Moq;
 using SoftwareEngineerAssignment.Api.Constants;
 using SoftwareEngineerAssignment.Api.Models;
 using SoftwareEngineerAssignment.Api.Services;
 
-namespace SoftwareEngineerAssignment.Tests.Services;
+namespace SoftwareEngineerAssignment.Tests.Unit.Services;
 
 public class AdviceSlipServiceTests
 {
@@ -17,7 +19,9 @@ public class AdviceSlipServiceTests
             BaseAddress = new Uri(RouteConstants.AdviceSlipServiceBaseUrl)
         };
 
-        _adviceSplitService = new AdviceSlipService(httpClient);
+        var logger = new Mock<ILogger<AdviceSlipService>>();
+
+        _adviceSplitService = new AdviceSlipService(logger.Object, httpClient);
     }
 
     [Fact]
