@@ -28,7 +28,7 @@ jobs:
       - name: Test
         run: dotnet test --configuration Release
 
-      - name: Publich
+      - name: Publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
