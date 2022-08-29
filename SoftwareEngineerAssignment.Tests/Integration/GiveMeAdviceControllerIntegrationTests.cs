@@ -30,6 +30,7 @@ public class GiveMeAdviceControllerIntegrationTests : IClassFixture<TestingApiWe
         Assert.NotNull(advices);
         Assert.IsType<GiveMeAdviceResponse>(advices);
 
+        Assert.True(response.IsSuccessStatusCode);
         Assert.Equal(HttpStatusCode.OK, advices.StatusCode);
     }
 
