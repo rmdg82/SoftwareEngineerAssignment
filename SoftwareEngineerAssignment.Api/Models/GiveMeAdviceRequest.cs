@@ -5,7 +5,7 @@ namespace SoftwareEngineerAssignment.Api.Models;
 /// <summary>
 /// This class implements IEquatable interface in order to be used as key in the cache service.
 /// </summary>
-public class GiveMeAdviceRequest : IEquatable<GiveMeAdviceRequest>
+public sealed class GiveMeAdviceRequest : IEquatable<GiveMeAdviceRequest>
 {
     [Required]
     public string Topic { get; set; } = null!;
