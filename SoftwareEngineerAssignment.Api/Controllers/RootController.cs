@@ -14,7 +14,7 @@ namespace SoftwareEngineerAssignment.Api.Controllers;
 public class RootController : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> GetRoot()
+    public OkObjectResult GetRoot()
     {
         GiveMeAdviceRequest giveMeAdviceRequest = new()
         {
@@ -29,7 +29,8 @@ public class RootController : ControllerBase
             {
                 GiveMeAdvice = new
                 {
-                    Url = Url.Action(nameof(GiveMeAdviceController.GiveMeAdvice), "GiveMeAdvice"),
+                    Url = "/api/GiveMeAdvice",
+                    Verbs = "POST",
                     Description = "Get a random advice slip setting a custom topic and total advice amount.",
                     ExampleJSON = JsonSerializer.Serialize(
                         giveMeAdviceRequest,

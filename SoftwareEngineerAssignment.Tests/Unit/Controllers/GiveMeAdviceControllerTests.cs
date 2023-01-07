@@ -13,7 +13,6 @@ public class GiveMeAdviceControllerTests
 {
     private readonly Mock<IAdviceSlipService> _mockAdviceSlipService;
     private readonly Mock<ILogger<GiveMeAdviceController>> _mockLogger;
-    private readonly Mock<ICacheService> _mockCache;
 
     private GiveMeAdviceController? _controller;
 
@@ -21,7 +20,8 @@ public class GiveMeAdviceControllerTests
     {
         _mockLogger = new Mock<ILogger<GiveMeAdviceController>>();
         _mockAdviceSlipService = new Mock<IAdviceSlipService>();
-        _mockCache = new Mock<ICacheService>();
+
+        _controller = new GiveMeAdviceController(_mockLogger.Object, _mockAdviceSlipService.Object);
     }
 
     [Fact]
